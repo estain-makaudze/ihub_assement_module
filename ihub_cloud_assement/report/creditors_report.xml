@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="creditors_report">
+            <t t-call="web.html_container">
+                <style>
+                    .table_box{
+                        position: relative;
+                        width: 1005px;
+                        height: 306px;
+                        left: 42px;
+                        top: 100px;
+                   }
+                   th{
+                        font-family: 'Roboto';
+                        font-style: normal;
+                        font-weight: 700;
+                        font-size: 15.9815px;
+                        line-height: 22px;
+                        text-transform: uppercase;
+                       text-align:center;
+                   }
+                   td{
+                        font-family: 'Roboto';
+                        font-style: normal;
+                        font-weight: 700;
+                        font-size: 14.7815px;
+                        line-height: 22px;
+                        text-transform: uppercase;
+                   }
+                    th, td {
+                        padding: 10px;
+                    }
+                </style>
+                   <t t-call="web.external_layout">
+                        <div class="table_box ">
+                            <h1>List of Creditors</h1>
+                           <table class="table table-bordered"  >
+                            <thead  class="thead-light">
+                                <tr>
+                                    <th name="name" ><span>Name</span></th>
+                                    <th name="creditor_no" ><span>Creditor No</span></th>
+                                    <th name="creditor_ref" ><span>Creditor Ref</span></th>
+                                    <th name="creditor_acc_no" ><span>Creditor Acc No</span></th>
+                                    <th name="creditor_name" ><span>Creditor Name</span></th>
+                                    <th name="creditor_add_1" ><span>Creditor Address 1</span></th>
+                                    <th name="creditor_add_2" ><span>Creditor Address 2</span></th>
+                                    <th name="creditor_type" ><span>Creditor Type</span></th>
+                                    <th name="business_type" ><span>Business Type</span></th>
+                                    <th name="season" ><span>Season</span></th>
+                                </tr>
+                            </thead>
+                                   <t  t-foreach="docs" t-as="doc">
+                            <tbody>
+                                    <td name="name"><span t-field="doc.name" t-options="{'widget': 'text'}"/></td>
+                                    <td name="creditor_no"><span t-field="doc.creditor_no" t-options="{'widget': 'text'}"/></td>
+                                    <td name="creditor_ref"><span  t-field="doc.creditor_ref" t-options="{'widget': 'text'}"/></td>
+                                    <td name="Creditor_acc_no"><span t-field="doc.creditor_acc_no" t-options="{'widget': 'text'}"/></td>
+                                    <td name="creditor_name"><span t-field="doc.creditor_name" t-options="{'widget': 'text'}"/></td>
+                                    <td name="creditor_add_1" ><span  t-field="doc.creditor_add_1" t-options="{'widget': 'text'}"/></td>
+                                    <td name="creditor_add_2"><span t-field="doc.creditor_add_2" t-options="{'widget': 'text'}"/></td>
+                                    <td name="creditor_type"><span t-field="doc.creditor_type" t-options="{'widget': 'text'}"/></td>
+                                    <td name="business_type" ><span t-field="doc.business_type" t-options="{'widget': 'text'}"/></td>
+                                    <td name="season"><span t-field="doc.season" t-options="{'widget': 'text'}"/></td>
+                            </tbody>
+                                           </t>
+
+                            </table>
+                       </div>
+                   </t>
+               </t>
+        </template>
+    </data>
+</odoo>

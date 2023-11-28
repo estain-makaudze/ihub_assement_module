@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Sequences for Growers Number in Growers Model-->
+        <record id="grower_no_seq" model="ir.sequence">
+            <field name="name">Grower Sequence</field>
+            <field name="code">grower_no.seq</field>
+            <field name="prefix">V</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="creditor_no_seq" model="ir.sequence">
+            <field name="name">Creditors Sequence</field>
+            <field name="code">creditor_no.seq</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

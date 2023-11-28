@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="growers_report">
+            <t t-call="web.html_container">
+                <style>
+                    .table_box{
+                        position: relative;
+                        width: 1005px;
+                        height: 306px;
+                        left: 42px;
+                        top: 100px;
+                   }
+                   th{
+                        font-family: 'Roboto';
+                        font-style: normal;
+                        font-weight: 700;
+                        font-size: 15.9815px;
+                        line-height: 22px;
+                        text-transform: uppercase;
+                       text-align:center;
+                   }
+                   td{
+                        font-family: 'Roboto';
+                        font-style: normal;
+                        font-weight: 700;
+                        font-size: 14.7815px;
+                        line-height: 22px;
+                        text-transform: uppercase;
+                   }
+                    th, td {
+                        padding: 10px;
+                    }
+                </style>
+                   <t t-call="web.external_layout">
+                        <div class="table_box ">
+                            <h1>List of Growers</h1>
+                           <table class="table table-bordered"  >
+                            <thead  class="thead-light">
+                                <tr>
+                                    <th name="grower_no" ><span>Grower No</span></th>
+                                    <th name="name" ><span>Name</span></th>
+                                    <th name="selling_point" ><span>Selling Point</span></th>
+                                    <th name="national_id" ><span>National Id</span></th>
+                                    <th name="cellphone_number" ><span>Cellphone Number</span></th>
+                                    <th name="grower_type" ><span>Grower Type</span></th>
+                                    <th name="email" ><span>Email</span></th>
+                                    <th name="province" ><span>Province</span></th>
+                                    <th name="date_amended" ><span>Date Amended</span></th>
+                                    <th name="barn_type" ><span>Barn Type</span></th>
+                                </tr>
+                            </thead>
+                                   <t  t-foreach="docs" t-as="doc">
+                            <tbody>
+                                    <td name="grower_no"><span t-field="doc.grower_no" t-options="{'widget': 'text'}"/></td>
+                                    <td name="name"><span t-field="doc.name" t-options="{'widget': 'text'}"/></td>
+                                    <td name="selling_point"><span  t-field="doc.selling_point" t-options="{'widget': 'text'}"/></td>
+                                    <td name="national_id"><span t-field="doc.national_id" t-options="{'widget': 'text'}"/></td>
+                                    <td name="cellphone_number"><span t-field="doc.cellphone_number" t-options="{'widget': 'text'}"/></td>
+                                    <td name="grower_type" ><span  t-field="doc.grower_type" t-options="{'widget': 'text'}"/></td>
+                                    <td name="email"><span t-field="doc.email" t-options="{'widget': 'text'}"/></td>
+                                    <td name="province"><span t-field="doc.province" t-options="{'widget': 'text'}"/></td>
+                                    <td name="date_amended" ><span t-field="doc.date_amended" t-options="{'widget': 'text'}"/></td>
+                                    <td name="barn_type"><span t-field="doc.barn_type" t-options="{'widget': 'text'}"/></td>
+                            </tbody>
+                                           </t>
+
+                            </table>
+                       </div>
+                   </t>
+               </t>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,4 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_growers_model,access_growers_model,model_growers_model,base.group_user,1,1,1,1
+access_growers_invoices_model,access_growers_invoices_model,model_growers_invoices_model,base.group_user,1,1,1,1
+access_creditors_model,access_creditors_model,model_creditors_model,base.group_user,1,1,1,1

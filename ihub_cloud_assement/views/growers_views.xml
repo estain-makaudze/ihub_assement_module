@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- this is the main view for growers records-->
+<record id="growers_action" model="ir.actions.act_window">
+    <field name="name">Growers</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">growers.model</field>
+    <field name="view_mode">tree,form</field>
+    <field name="context"></field>
+    <field name="help" type="html">
+    	<p class="o_view_nocontent_smiling_face">
+    	    Manage Growers HustleFree
+    	</p>
+    </field>
+</record>
+<!-- this tree Views for growers records-->
+  <record id="growers_tree" model="ir.ui.view">
+        <field name="name">growers.tree</field>
+        <field name="model">growers.model</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="grower_no"/>
+                <field name="name"/>
+                <field name="first_name"/>
+                <field name="cellphone_number"/>
+                <field name="grower_type"/>
+                <field name="farm_name"/>
+                <field name="season"/>
+                <field name="barn_type"/>
+                <field name="province"/>
+                <field name="date_amended"/>
+            </tree>
+        </field>
+   </record>      
+
+<!-- growers model search views-->
+    <record id="growers_search" model="ir.ui.view">
+        <field name="name">growers.search</field>
+        <field name="model">growers.model</field>
+        <field name="arch" type="xml">
+            <search string="Default">
+                    <!-- as you type on search bar options views-->
+                    <field name="grower_no"/>
+                    <field name="name"/>
+                    <field name="first_name"/>
+                    <field name="farm_name"/>
+                    <field name="date_amended"/>
+                    <filter name="current_season" string="Current Season" domain="[('season', '=', '2023')]"/>
+                <separator/>
+                     <!-- group by options  views-->
+                    <group expand='1' string='Group by...'>
+                        <filter string="Grower Type" name="grower_type" context="{'group_by': 'grower_type'}"/>
+                        <filter string="Season" name="season" context="{'group_by': 'season'}"/>
+                    </group>
+                <separator/>
+            </search>
+        </field>
+    </record>
+
+
+<!--this id form view for growers model-->
+  <record id="growers_form" model="ir.ui.view">
+        <field name="name">growers.form</field>
+        <field name="model">growers.model</field>
+        <field name="arch" type="xml">
+            <form>
+            	<sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="grower_no"/>
+                        </h1>
+                    </div>
+            		<group>
+            			<group>
+			                <field name="name"/>
+			                <field name="first_name"/>
+			                <field name="surname"/>
+			                <field name="grower_no"/>
+			                <field name="selling_point"/>
+			                <field name="initials"/>
+			                <field name="national_id"/>
+			                <field name="telephone_landline"/>
+			                <field name="cellphone_number"/>
+			                <field name="grower_type"/>
+			                <field name="farm_name"/>
+			                <field name="postal_address_1"/>
+			                <field name="postal_address_2"/>
+			                <field name="district"/>
+			                <field name="grower_area"/>
+			                <field name="grower_class"/>
+			                <field name="next_registration"/>
+			                <field name="season"/>
+            			</group>
+            			<group>
+			                <field name="email"/>
+			                <field name="association"/>
+			                <field name="barn_type"/>
+			                <field name="date_amended"/>
+			                <field name="amend_type"/>
+			                <field name="contractor"/>
+			                <field name="hectors"/>
+			                <field name="area_2"/>
+			                <field name="province"/>
+			                <field name="landholding"/>
+			                <field name="obligations_fullfilled"/>
+			                <field name="date_amended"/>
+            			</group>
+            		</group>
+
+            	</sheet>
+                 <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+         </field>
+   </record>
+
+
+<!--iHub Module Asssement Options-->
+<menuitem id="ihub_module_assessment"
+		name="Ihub Module Assessment"
+		sequence="10"/>
+
+
+<menuitem id="growers_menu"
+		name="Growers"
+		parent="ihub_module_assessment"
+        action="growers_action"
+		sequence="10"/>
+
+</odoo>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--this is a report action-->
+        <record id="creditors_report_option" model="ir.actions.report">
+            <field name="name">Creditors Report</field>
+            <field name="model">creditors.model</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_file">ihub_cloud_assement.creditors_report</field>
+            <field name="report_name">ihub_cloud_assement.creditors_report</field>
+            <field name="binding_model_id" ref="model_creditors_model"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="growers_report_option" model="ir.actions.report">
+            <field name="name">Growers Report</field>
+            <field name="model">growers.model</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_file">ihub_cloud_assement.growers_report</field>
+            <field name="report_name">ihub_cloud_assement.growers_report</field>
+            <field name="binding_model_id" ref="model_growers_model"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

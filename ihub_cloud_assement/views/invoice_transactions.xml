@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- this is the main view for creditors records-->
+<record id="invoice_transtions_action" model="ir.actions.act_window">
+    <field name="name">Invoice Trancations</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">invoice_transtions.model</field>
+    <field name="view_mode">tree,form</field>
+    <field name="context"></field>
+    <field name="help" type="html">
+    	<p class="o_view_nocontent_smiling_face">
+    	    Manage Invoice Transactions HustleFree
+    	</p>
+    </field>
+</record>
+<!-- this tree Views for creditors records-->
+  <record id="invoice_transtions_tree" model="ir.ui.view">
+        <field name="name">invoice_transtions.tree</field>
+        <field name="model">invoice_transtions.model</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="creditors_no"/>
+                <field name="creditor_id"/>
+                <field name="creditor_name"/>
+                <field name="currency_id" invisible="1"/>
+                <field name="sale_date"/>
+                <field name="season"/>
+                <field name="invoice_total" sum="Total"/>
+            </tree>
+        </field>
+   </record>
+
+<!-- creditors model search views-->
+    <record id="invoice_transtions_search" model="ir.ui.view">
+        <field name="name">invoice_transtions.search</field>
+        <field name="model">invoice_transtions.model</field>
+        <field name="arch" type="xml">
+            <search string="Invoice Transctions Search">
+                    <!-- as you type on search bar options views-->
+                    <field name="creditor_name"/>
+                    <field name="sale_date"/>
+                    <filter name="current_season" string="Current Season" domain="[('season', '=', '2023')]"/>
+                <separator/>
+                     <!-- group by options  views-->
+                    <group expand='1' string='Group by...'>
+                        <filter string="Sales Date" name="sale_date" context="{'group_by': 'sale_date'}"/>
+                    </group>
+                <separator/>
+            </search>
+        </field>
+    </record>
+
+
+<!--this id form view for growers model-->
+  <record id="invoice_transtions_form" model="ir.ui.view">
+        <field name="name">invoice_transtions.form</field>
+        <field name="model">invoice_transtions.model</field>
+        <field name="arch" type="xml">
+            <form>
+            	<sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="creditor_id"/>
+                        </h1>
+                    </div>
+            		<group>
+            			<group>
+			                <field name="id"/>
+			                <field name="creditors_no"/>
+			                <field name="creditor_name"/>
+			                <field name="currency_id"/>
+			                <field name="sale_date"/>
+			                <field name="season"/>
+            			</group>
+            		</group>
+                    <notebook>
+                         <page string="Invoices">
+                               <field name="invoice_lines" >
+                                    <tree editable="top">
+                                         <field name="grower_id"/>
+                                         <field name="grower_name"/>
+                                         <field name="number_of_bales" sum="Total"/>
+                                         <field name="amount_charged"/>
+                                         <field name="currency_id"/>
+                                         <field name="amount_paid"/>
+                                         <field name="create_uid" widget="many2one_avatar_user"/>
+                                    </tree>
+                               </field>
+                              <group class="oe_subtotal_footer oe_right">
+                             <field name="invoice_total"/>
+                        </group>
+                         </page>
+
+                    </notebook>
+            	</sheet>
+                 <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+         </field>
+   </record>
+
+
+<menuitem id="invoice_transtions_menu"
+		name="Invoice Transtions"
+		parent="ihub_module_assessment"
+        action="invoice_transtions_action"
+		sequence="30"/>
+
+</odoo>

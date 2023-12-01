@@ -81,6 +81,8 @@
 			                <field name="creditor_name"/>
 			                <field name="creditor_type"/>
 			                <field name="business_type"/>
+			                <field name="creditor_old_no"/>
+			                <field name="creditor_type"/>
             			</group>
             			<group>
 			                <field name="creditor_add_1"/>
@@ -90,21 +92,6 @@
 			                <field name="cellphone_no"/>
             			</group>
             		</group>
-                    <notebook>
-                         <page string="Invoices">
-                               <field name="invoice_lines" >
-                                    <tree editable="top">
-                                         <field name="grower_id"/>
-                                         <field name="grower_name"/>
-                                         <field name="number_of_bales" sum="Total"/>
-                                         <field name="amount_charged"/>
-                                         <field name="currency_id"/>
-                                         <field name="amount_paid"/>
-                                         <field name="create_uid" widget="many2one_avatar_user"/>
-                                    </tree>
-                               </field>
-                         </page>
-                    </notebook>
             	</sheet>
                  <div class="oe_chatter">
                     <field name="message_follower_ids"/>

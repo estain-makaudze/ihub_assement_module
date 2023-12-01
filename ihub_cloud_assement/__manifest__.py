@@ -14,6 +14,7 @@
     'data/data.xml',
     'views/growers_views.xml',
     'views/creditors_views.xml',
+    'views/invoice_transactions.xml',
     'report/report_options.xml',
     'report/creditors_report.xml',
     'report/growers_report.xml',

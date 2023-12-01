@@ -9,7 +9,6 @@ class creditors_database(models.Model):
     _order="id desc"
     _rec_name="name"
 
-    invoice_lines = fields.One2many('growers_invoices.model', 'creditors_id', string="Invoice ID",)
 
     name = fields.Char(required=True ,string="Name")
     creditor_no = fields.Char(string="Creditor No", readonly=True, required=True, copy=False, default=lambda self: _('New'))
@@ -26,7 +25,7 @@ class creditors_database(models.Model):
     cellphone_no= fields.Char(string="Cellphone #")
     season = fields.Selection(
         default='2023',
-        string='Grower Type',
+        string='Season',
         selection=[
             ('2023', '2023'),
             ('2024', '2024')])
@@ -47,7 +46,7 @@ class growers_invoices(models.Model):
     _order = "id desc"
     _rec_name = "grower_name"
 
-    creditors_id= fields.Many2one('creditors.model', string="Grower")
+    invoice_transtions_id= fields.Many2one('invoice_transtions.model', string="Grower")
     grower_id= fields.Many2one('growers.model', string="Grower")
     grower_name= fields.Char(string="Grower Name", related='grower_id.name')
     number_of_bales= fields.Integer(string="Number of Bales")
